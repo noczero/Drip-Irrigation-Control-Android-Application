@@ -6,6 +6,9 @@ public class TalanganAir {
     long phValue;
     String solenoidStatus;
     String firebaseKey;
+    String statusWatering;
+
+
 
     public TalanganAir(String name, String soilHumidity, int phValue, String solenoidStatus, String firebaseKey) {
         this.name = name;
@@ -13,6 +16,7 @@ public class TalanganAir {
         this.phValue = phValue;
         this.solenoidStatus = solenoidStatus;
         this.firebaseKey = firebaseKey;
+        //this.statusWatering = statusWatering;
     }
 
     public String getName() {
@@ -53,5 +57,13 @@ public class TalanganAir {
 
     public void setFirebaseKey(String firebaseKey) {
         this.firebaseKey = firebaseKey;
+    }
+
+    public String getStatusWatering() {
+        return statusWatering;
+    }
+
+    public void setStatusWatering(String statusWatering) {
+        this.statusWatering = statusWatering;
     }
 }

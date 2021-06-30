@@ -18,6 +18,8 @@ import com.example.dripirrigationcontrol.ui.models.Solenoid;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class AdapterControlling extends RecyclerView.Adapter<AdapterControlling.HolderData> {
@@ -43,6 +45,7 @@ public class AdapterControlling extends RecyclerView.Adapter<AdapterControlling.
     @Override
     public void onBindViewHolder(@NonNull AdapterControlling.HolderData holder, int position) {
         holder.solenoidNameText.setText(listSolenoid.get(position).getName());
+        //holder.statusTxt.setText(listSolenoid.get(position).getStatus());
         holder.position = position;
         holder.firebaseKey = listSolenoid.get(position).getfirebaseKey();
         holder.solenoid = listSolenoid.get(position);
@@ -58,6 +61,7 @@ public class AdapterControlling extends RecyclerView.Adapter<AdapterControlling.
         TextView solenoidNameText;
         SwitchCompat wateringBtn;
         SwitchCompat treatmentBtn;
+        TextView statusTxt;
         Solenoid solenoid;
         int position;
         String firebaseKey;
@@ -68,6 +72,7 @@ public class AdapterControlling extends RecyclerView.Adapter<AdapterControlling.
             solenoidNameText = itemView.findViewById(R.id.solenoidNameText);
             wateringBtn = itemView.findViewById(R.id.wateringButton);
             treatmentBtn = itemView.findViewById(R.id.treatmentButton);
+            statusTxt = itemView.findViewById(R.id.solenoidStatus);
 
 
             wateringBtn.setOnCheckedChangeListener((buttonView, isChecked) -> {

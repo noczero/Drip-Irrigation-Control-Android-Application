@@ -82,21 +82,14 @@
                            android:layout_marginTop="10dp"
                            >
 
-                           <TextView
+                           <Button
+                               android:layout_margin="15dp"
+                               android:id="@+id/waterPumpBtn"
                                android:layout_width="wrap_content"
                                android:layout_height="wrap_content"
-                               android:layout_marginStart="10dp"
-                               android:layout_marginBottom="8dp"
-                               android:text="Status : "
-                               android:textSize="18sp"
-                               />
+                               android:text="TURN OFF"
+                            />
 
-                           <androidx.appcompat.widget.SwitchCompat
-                               android:id="@+id/wateringButton"
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:switchTextAppearance="@style/SwitchTextAppearance"
-                               android:textSize="18sp"></androidx.appcompat.widget.SwitchCompat>
                        </LinearLayout>
 
                    </LinearLayout>

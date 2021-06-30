@@ -48,6 +48,9 @@ public class AdapterMonitoring extends RecyclerView.Adapter<AdapterMonitoring.Ho
         String solenoidStatus = listTalanganAir.get(position).getSolenoidStatus();
         holder.solenoidStatusTxt.setText(solenoidStatus);
 
+        //String statusPenyiraman = listTalanganAir.get(position).getStatusWatering();
+        //holder.statusPenyiramanTxt.setText(statusPenyiraman);
+
         holder.position = position;
         holder.firebaseKey = listTalanganAir.get(position).getFirebaseKey();
     }
@@ -63,6 +66,7 @@ public class AdapterMonitoring extends RecyclerView.Adapter<AdapterMonitoring.Ho
         TextView soilHumidityTxt;
         TextView phValueTxt;
         TextView solenoidStatusTxt;
+        //TextView statusPenyiramanTxt;
         int position;
         String firebaseKey;
 
@@ -73,6 +77,7 @@ public class AdapterMonitoring extends RecyclerView.Adapter<AdapterMonitoring.Ho
             soilHumidityTxt = itemView.findViewById(R.id.soilHumidity);
             phValueTxt = itemView.findViewById(R.id.phValue);
             solenoidStatusTxt = itemView.findViewById(R.id.solenoidStatus);
+            //statusPenyiramanTxt = itemView.findViewById(R.id.wateringStatus);
         }
     }
 

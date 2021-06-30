@@ -49,6 +49,7 @@ public class MonitoringFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_monitoring, container, false);
         final TextView gardenHumidityTxt = root.findViewById(R.id.gardenHumidity);
         final TextView gardenTemperatureTxt = root.findViewById(R.id.gardenTemperature);
+        final TextView wateringStatusTxt = root.findViewById(R.id.wateringStatus);
 
         monitoringViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -70,10 +71,17 @@ public class MonitoringFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     Log.d("data_firebase", "--" + dataSnapshot.child("CMD").getValue());
+                    // get command
+                    String raw_command = String.valueOf(dataSnapshot.child("CMD").getValue());
+
+                    // split by
+                    String[] split_command = raw_command.split(","); // {ON, WATER, 2}
 
                     // set data to text view
                     gardenHumidityTxt.setText(String.format("%.2f", (double) dataSnapshot.child("humidity").getValue()));
                     gardenTemperatureTxt.setText(String.format("%.2f", (double) dataSnapshot.child("temperature").getValue()));
+                    wateringStatusTxt.setText(split_command[1]);
+
 
                 }
             }
@@ -113,6 +121,12 @@ public class MonitoringFragment extends Fragment {
                 if (dataSnapshot.exists()) {
                     Log.d("data_firebase", "--" + dataSnapshot.child("CMD").getValue());
 
+                    // get command
+                    String raw_command = String.valueOf(dataSnapshot.child("CMD").getValue());
+
+                    // split by
+                    String[] split_command = raw_command.split(","); // {ON, WATER, 2}
+
 
                     // iterate over ph
                     DataSnapshot phDataSnapshot = dataSnapshot.child("ph"); // get ph
@@ -137,6 +151,8 @@ public class MonitoringFragment extends Fragment {
                         //Log.d("data_firebase", "onDataChange: " + postSnapshot);
 
                         setSolenoidByFirebaseKey(postSnapshot.getKey(), String.valueOf(postSnapshot.getValue()));
+                        setState(postSnapshot.getKey(), split_command[1]); // set state
+
                     }
 
 
@@ -184,6 +200,16 @@ public class MonitoringFragment extends Fragment {
             if (arrayOfTA.get(i).getFirebaseKey().equals(firebaseKey)){
                 //Log.d("data_firebase", "setPHbyFirebaseKey: " + firebaseKey);
                 arrayOfTA.get(i).setSolenoidStatus(solenoidStatus);
+            }
+        }
+    }
+
+    private void setState(String firebaseKey, String command){
+        for (int i=0; i<20;i++){
+
+            if (arrayOfTA.get(i).getFirebaseKey().equals(firebaseKey)){
+                //Log.d("data_firebase", "setPHbyFirebaseKey: " + firebaseKey);
+                arrayOfTA.get(i).setStatusWatering(command);
             }
         }
     }

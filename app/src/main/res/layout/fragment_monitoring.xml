@@ -48,15 +48,36 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="16dp"
-                        android:layout_marginBottom="30dp"
                         android:text="Kondisi Kebun"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textAlignment="center"
                         />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginLeft="20dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Status Penyiraman : "
+
+                            />
+                        <TextView
+                            android:id="@+id/wateringStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" - "
+                            />
+                    </LinearLayout>
 
 
                     <LinearLayout
+                        android:id="@+id/statusLinear"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="30dp"
@@ -96,8 +117,11 @@
                             android:textStyle="bold" />
 
                     </LinearLayout>
+
+
                 </LinearLayout>
             </LinearLayout>
+
 
             <TextView
                 android:id="@+id/titleTA"
