@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Drip Irrigation Control</string>
+    <string name="title_monitoring">Monitoring</string>
+    <string name="title_controlling">Controlling</string>
+</resources>

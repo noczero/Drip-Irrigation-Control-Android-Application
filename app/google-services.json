@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "699515533858",
+    "firebase_url": "https://drip-irrigation-control-default-rtdb.firebaseio.com",
+    "project_id": "drip-irrigation-control",
+    "storage_bucket": "drip-irrigation-control.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699515533858:android:10de35fa13ecbd7826e87b",
+        "android_client_info": {
+          "package_name": "com.example.dripirrigationcontrol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699515533858-gqt6l37r1m30gce9fcqeop82vs25239g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV5uKizWQF6hZ0WkW2gS9j7Bbup2Vyghw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699515533858-gqt6l37r1m30gce9fcqeop82vs25239g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
