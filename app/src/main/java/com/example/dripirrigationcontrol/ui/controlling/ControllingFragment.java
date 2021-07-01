@@ -113,7 +113,7 @@ public class ControllingFragment extends Fragment {
                     for (DataSnapshot postSnapshot : soilDataSnapshot.getChildren()){
                         //Log.d("data_firebase", "onDataChange: " + postSnapshot);
 
-                        setState(postSnapshot.getKey(), split_command[1]); // set state
+                        // setState(postSnapshot.getKey(), split_command[1]); // set state
                     }
 
 

@@ -78,8 +78,22 @@ public class MonitoringFragment extends Fragment {
                     String[] split_command = raw_command.split(","); // {ON, WATER, 2}
 
                     // set data to text view
-                    gardenHumidityTxt.setText(String.format("%.2f", (double) dataSnapshot.child("humidity").getValue()));
-                    gardenTemperatureTxt.setText(String.format("%.2f", (double) dataSnapshot.child("temperature").getValue()));
+                    if (dataSnapshot.child("humidity").getValue() instanceof Long){
+                        gardenHumidityTxt.setText(String.valueOf(dataSnapshot.child("humidity").getValue()));
+                    }
+
+                    if (dataSnapshot.child("temperature").getValue() instanceof Long) {
+                        gardenTemperatureTxt.setText(String.valueOf(dataSnapshot.child("temperature").getValue()));
+                    }
+
+                    if (dataSnapshot.child("temperature").getValue() instanceof Double) {
+                        gardenTemperatureTxt.setText(String.format("%.2f",dataSnapshot.child("temperature").getValue()));
+                    }
+                    if (dataSnapshot.child("humidity").getValue() instanceof Double) {
+                        gardenHumidityTxt.setText(String.format("%.2f", dataSnapshot.child("humidity").getValue()));
+                    }
+
+
                     wateringStatusTxt.setText(split_command[1]);
 
 
